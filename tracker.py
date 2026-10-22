@@ -311,9 +311,9 @@ def statusline():
     parts = []
     if answers and "five_hour" in k:
         s5, _ = session_pcts(state, sid)
-        parts.append(f"answer {fmt_pct(answers[-1][1] * k['five_hour'])} · Session {fmt_pct(s5)} of 5h")
+        parts.append(f"Last answer {fmt_pct(answers[-1][1] * k['five_hour'])} · Session {fmt_pct(s5)} of 5h")
     else:
-        parts.append("answer – · Session –")
+        parts.append("Last answer – · Session –")
     w5, w7 = usage.get("five_hour"), usage.get("seven_day")
     if w5:
         if time.time() > w5["resets"]:

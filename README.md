@@ -7,7 +7,7 @@ Claude Code's `/usage` shows how much of your **5-hour** and **weekly** limits y
 **Always visible, as a status line under the prompt**
 
 ```
-answer 0.72% · Session 3.69% of 5h  │  5h 40% (resets 19:50)  │  week 10%
+Last answer 0.72% · Session 3.69% of 5h  │  5h 40% (resets 19:50)  │  week 10%
 ```
 
 **After every answer**
