@@ -295,7 +295,7 @@ def stop():
 
     rec = locked(run)
     if rec:
-        msg = f"Tracker · this answer: {fmt_pct(rec['pct5'])} of 5h, {fmt_pct(rec['pct7'])} of week"
+        msg = f"(Tracker) this answer: {fmt_pct(rec['pct5'])} of 5h, {fmt_pct(rec['pct7'])} of week"
         msg += f" · this session: {fmt_pct(rec['sess5'])} of 5h, {fmt_pct(rec['sess7'])} of week"
         if rec["util5"] is not None and rec["util7"] is not None:
             msg += f" · now {rec['util5']:.0f}% / {rec['util7']:.0f}%"
@@ -322,7 +322,7 @@ def statusline():
             parts.append(f"5h {w5['util']:.0f}% (resets {datetime.fromtimestamp(w5['resets']).strftime('%H:%M')})")
     if w7:
         parts.append(f"week {w7['util']:.0f}%")
-    print("(Tracker) " + "  │  ".join(parts))
+    print("  │  ".join(parts))
 
 
 # ---------- report ----------
