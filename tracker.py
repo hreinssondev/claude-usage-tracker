@@ -3,7 +3,7 @@
 
   tracker.py [report] [N]   current limits, the last N answers (default 15), per-session totals
   tracker.py on | off       add / remove the Stop hook and status line in Claude Code's settings
-  tracker.py stop           Stop hook: logs the answer that just finished and shows its %
+  tracker.py stop           Stop hook: logs the answer that just finished (feeds the status line)
   tracker.py statusline     status line: last answer, this session, current limits
 
 How it works: every API request in the transcripts (<config>/projects/**/*.jsonl) is weighted by
@@ -290,17 +290,9 @@ def stop():
         save(STATE, state)
         with open(LEDGER, "a") as f:
             f.write(json.dumps(rec) + "\n")
-        rec["sess5"], rec["sess7"] = session_pcts(state, sid)
         return rec
 
-    rec = locked(run)
-    if rec:
-        msg = f"this answer: {fmt_pct(rec['pct5'])} of 5h, {fmt_pct(rec['pct7'])} of week"
-        msg += f" · this session: {fmt_pct(rec['sess5'])} of 5h, {fmt_pct(rec['sess7'])} of week"
-        if rec["util5"] is not None and rec["util7"] is not None:
-            msg += f" · now {rec['util5']:.0f}% / {rec['util7']:.0f}%"
-        msg += f" · {rec['tokens'] / 1000:.0f}k tokens"
-        print(json.dumps({"systemMessage": msg}))  # shown to the user, not sent to the model
+    locked(run)
 
 
 def statusline():
@@ -446,7 +438,7 @@ def turn_on():
             save(PREV_STATUSLINE, current)
             current = None
         else:
-            print("Kept your status line; per-answer messages and cc-usage still work.")
+            print("Kept your status line; the cc-usage report still works.")
     if not current or ours(current):
         s["statusLine"] = {"type": "command", "command": run + " statusline"}
     write_settings(s)

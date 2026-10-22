@@ -10,12 +10,6 @@ Claude Code's `/usage` shows how much of your **5-hour** and **weekly** limits y
 Last answer 0.72% · Session 3.69% of 5h  │  5h 40% (resets 19:50)  │  week 10%
 ```
 
-**After every answer**
-
-```
-Stop says: this answer: 0.72% of 5h, 0.18% of week · this session: 3.69% of 5h, 0.93% of week · now 40% / 10% · 336k tokens
-```
-
 **History, with `cc-usage`**
 
 ```
@@ -69,7 +63,7 @@ Inside Claude Code you can run any of these with a leading `!`, e.g. `! cc-usage
 
 ## Cost and privacy
 
-- **Uses no tokens.** Everything is a local script. The per-answer message is shown to you only and never reaches the model.
+- **Uses no tokens.** Everything is a local script, and nothing it shows reaches the model.
 - **Fast.** The hook takes about 0.1 s after each answer, and the status line about 0.05 s; it reads a small file and makes no network call.
 - **One network call:** after an answer, at most once every 45 s, to `api.anthropic.com/api/oauth/usage`, using Claude Code's own login token. The token is read from the macOS Keychain or `~/.claude/.credentials.json` and is never stored or sent anywhere else.
 - **Local data:** your history (`ledger.jsonl`) stays in `~/.claude/usage-tracker/`. It records prompt previews (first 200 characters), session titles and token counts.
