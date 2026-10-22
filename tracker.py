@@ -319,9 +319,9 @@ def statusline():
         if time.time() > w5["resets"]:
             parts.append("5h new window")
         else:
-            parts.append(f"5h {w5['util']:.0f}% (resets {datetime.fromtimestamp(w5['resets']).strftime('%H:%M')})")
+            parts.append(f"5h {w5['util']:.0f}% used (resets {datetime.fromtimestamp(w5['resets']).strftime('%H:%M')})")
     if w7:
-        parts.append(f"week {w7['util']:.0f}%")
+        parts.append(f"week {w7['util']:.0f}% used")
     print("  │  ".join(parts))
 
 
