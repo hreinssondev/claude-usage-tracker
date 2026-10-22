@@ -322,7 +322,7 @@ def statusline():
             parts.append(f"5h {w5['util']:.0f}% (resets {datetime.fromtimestamp(w5['resets']).strftime('%H:%M')})")
     if w7:
         parts.append(f"week {w7['util']:.0f}%")
-    print("  │  ".join(parts))
+    print("(Tracker) " + "  │  ".join(parts))
 
 
 # ---------- report ----------
