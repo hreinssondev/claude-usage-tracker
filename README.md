@@ -13,7 +13,7 @@ answer 0.72% · Session 3.69% of 5h  │  5h 40% (resets 19:50)  │  week 10%
 **After every answer**
 
 ```
-usage · this answer: 0.72% of 5h, 0.18% of week · this session: 3.69% of 5h, 0.93% of week · now 40% / 10% · 336k tokens
+Stop says: Tracker · this answer: 0.72% of 5h, 0.18% of week · this session: 3.69% of 5h, 0.93% of week · now 40% / 10% · 336k tokens
 ```
 
 **History, with `cc-usage`**

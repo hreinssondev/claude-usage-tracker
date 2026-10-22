@@ -295,7 +295,7 @@ def stop():
 
     rec = locked(run)
     if rec:
-        msg = f"usage · this answer: {fmt_pct(rec['pct5'])} of 5h, {fmt_pct(rec['pct7'])} of week"
+        msg = f"Tracker · this answer: {fmt_pct(rec['pct5'])} of 5h, {fmt_pct(rec['pct7'])} of week"
         msg += f" · this session: {fmt_pct(rec['sess5'])} of 5h, {fmt_pct(rec['sess7'])} of week"
         if rec["util5"] is not None and rec["util7"] is not None:
             msg += f" · now {rec['util5']:.0f}% / {rec['util7']:.0f}%"
