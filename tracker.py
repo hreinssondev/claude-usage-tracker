@@ -316,7 +316,7 @@ def statusline():
         if time.time() > w7["resets"]:
             parts.append("week new window")
         else:
-            parts.append(f"week {w7['util']:.0f}% (resets {datetime.fromtimestamp(w7['resets']).strftime('%a %H:%M')})")
+            parts.append(f"week {w7['util']:.0f}% (resets {datetime.fromtimestamp(w7['resets']).strftime('%d.%m')})")
     print("  │  ".join(parts))
 
 
