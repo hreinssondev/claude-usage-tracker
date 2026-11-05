@@ -28,12 +28,24 @@ Last answer 0.72% · Session 3.69% of 5h  │  5h 40% (resets 19:50)  │  week 
 
 ## Install
 
+**As a plugin (recommended).** At the prompt of a Claude Code terminal session:
+
+```
+/plugin install usage-tracker --marketplace hreinssondev/claude-usage-tracker
+```
+
+Answer `y` to add the marketplace, then pick a scope (user is the default). It runs from then on, with no restart. From a shell instead: `claude plugin install usage-tracker --marketplace hreinssondev/claude-usage-tracker`.
+
+The plugin shows its line under the prompt, beside your own status line rather than in place of it, and adds `/cc-usage` for the report (`/cc-usage 50` for the last 50 answers). Update with `claude plugin update usage-tracker`; turn off or remove it from `/plugin`. It needs a Claude Code version with plugin hooks modules; on an older one, use the script below.
+
+**With the install script.**
+
 ```sh
 git clone https://github.com/hreinssondev/claude-usage-tracker
 claude-usage-tracker/install.sh
 ```
 
-Then restart any open Claude Code sessions. Running `install.sh` again updates an existing install.
+Then restart any open Claude Code sessions. Running `install.sh` again updates an existing install. Use one or the other: if you switch to the plugin, run `./install.sh --off` first. Both keep the same history, so nothing is lost.
 
 The installer copies `tracker.py` to `~/.claude/usage-tracker/` and adds a Stop hook and a status line to `~/.claude/settings.json`, keeping a backup at `settings.json.bak-usage-tracker`. It also adds a `cc-usage` command to your shell. If you already have a status line, it asks before replacing it, and puts it back when you turn the tracker off.
 

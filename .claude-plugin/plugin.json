@@ -1,0 +1,8 @@
+{
+  "name": "usage-tracker",
+  "version": "0.2.0",
+  "description": "Per-answer and per-session share of your 5-hour and weekly Claude limits, as a status line",
+  "author": { "name": "hreinssondev" },
+  "repository": "https://github.com/hreinssondev/claude-usage-tracker",
+  "license": "MIT"
+}
